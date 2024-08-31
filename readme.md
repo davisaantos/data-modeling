@@ -12,7 +12,7 @@
 
 Abaixo está o diagrama que representa a estrutura do banco de dados:
 
-![Diagrama do Projeto](images/atividade2.drawio.png)
+![Diagrama do Projeto](/atividade2.drawio.png)
 
 
 
