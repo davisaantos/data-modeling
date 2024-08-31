@@ -8,6 +8,16 @@
 - [Nomes Lógicos e Físicos](#nomes-lógicos-e-físicos)
 - [Tabela FATO: Vendas](#tabela-fato-vendas)
 
+
+## DOMÍNIO:
+VendasLivraria
+
+## Sigla:
+VNDSLVRS
+
+
+
+
 ## Diagrama do Projeto
 
 Abaixo está o diagrama que representa a estrutura do banco de dados:
