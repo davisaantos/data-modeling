@@ -14,6 +14,12 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 ![Diagrama do Projeto](/atividade2.drawio.png)
 
+## DW
+![DW](/DW.png)
+
+## RELACIONAL
+![Relacional](/relacional.png)
+
 
 
 ## Glossário de Dados
