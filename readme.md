@@ -13,7 +13,7 @@
 VendasLivraria
 
 ## Sigla:
-VNDSLVRS
+VLVRS
 
 
 
