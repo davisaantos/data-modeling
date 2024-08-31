@@ -5,10 +5,10 @@
 
 - [Glossário de Dados](#glossário-de-dados)
 - [Estrutura de Tabelas](#estrutura-de-tabelas)
-  - [Tabela FATO: Vendas](#tabela-fato-vendas)
-  - [Tabelas de Dimensão](#tabelas-de-dimensão)
 - [Nomes Lógicos e Físicos](#nomes-lógicos-e-físicos)
-- [Como Executar](#como-executar)
+- [Tabela FATO: Vendas](#tabela-fato-vendas)
+
+
 
 ## Glossário de Dados
 
@@ -68,6 +68,74 @@
 
 ## Estrutura de Tabelas
 
+## Nomes Lógicos e Físicos:
+### Tabela FATO: `fato_vendas`
+
+| Nome Lógico             | Nome Físico         | Tipo de Dados              |
+|-------------------------|---------------------|----------------------------|
+| Identificador da Venda   | `id`                | `SERIAL PRIMARY KEY`        |
+| Identificador do Livro   | `fk_id_livro`       | `INT NOT NULL`              |
+| Identificador do Cliente | `fk_id_cliente`     | `INT NOT NULL`              |
+| Identificador do Endereço| `fk_id_endereco`    | `INT`                       |
+| Data da Venda            | `data_venda`        | `TIMESTAMP NOT NULL`        |
+| Quantidade Vendida       | `quantidade_vendida`| `INT NOT NULL`              |
+| Valor Total da Venda     | `valor_total`       | `DECIMAL(10, 2) NOT NULL`   |
+| Canal de Venda           | `canal_venda`       | `VARCHAR(50)`               |
+| Forma de Pagamento       | `forma_pagamento`   | `VARCHAR(50)`               |
+| Desconto Aplicado        | `desconto_aplicado` | `DECIMAL(10, 2)`            |
+| Data da Extração         | `data_extracao`     | `TIMESTAMP DEFAULT NOW()`   |
+
+### Tabela de Dimensão: `categoria`
+
+| Nome Lógico             | Nome Físico         | Tipo de Dados              |
+|-------------------------|---------------------|----------------------------|
+| Identificador da Categoria | `pk_id_categoria` | `SERIAL PRIMARY KEY`        |
+| Nome da Categoria        | `nome`              | `VARCHAR(255) NOT NULL`     |
+| Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
+| Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
+
+### Tabela de Dimensão: `livro`
+
+| Nome Lógico             | Nome Físico         | Tipo de Dados              |
+|-------------------------|---------------------|----------------------------|
+| Identificador do Livro   | `pk_id_livro`       | `SERIAL PRIMARY KEY`        |
+| Título do Livro          | `titulo`            | `VARCHAR(255) NOT NULL`     |
+| Autor do Livro           | `autor`             | `VARCHAR(255) NOT NULL`     |
+| Descrição do Livro       | `descricao`         | `TEXT`                      |
+| Código do Livro          | `codigo`            | `VARCHAR(50)`               |
+| Quantidade em Estoque    | `quantidade`        | `INT NOT NULL`              |
+| Identificador da Categoria | `fk_id_categoria` | `INT`                       |
+| Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
+| Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
+
+### Tabela de Dimensão: `cliente`
+
+| Nome Lógico             | Nome Físico         | Tipo de Dados              |
+|-------------------------|---------------------|----------------------------|
+| Identificador do Cliente | `pk_id_cliente`     | `SERIAL PRIMARY KEY`        |
+| Nome do Cliente          | `nome`              | `VARCHAR(255) NOT NULL`     |
+| CPF do Cliente           | `cpf`               | `VARCHAR(14) UNIQUE NOT NULL` |
+| E-mail do Cliente        | `email`             | `VARCHAR(255) UNIQUE NOT NULL` |
+| Telefone do Cliente      | `telefone`          | `VARCHAR(20)`               |
+| Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
+| Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
+
+### Tabela de Dimensão: `endereco`
+
+| Nome Lógico             | Nome Físico         | Tipo de Dados              |
+|-------------------------|---------------------|----------------------------|
+| Identificador do Endereço | `pk_id_endereco`   | `SERIAL PRIMARY KEY`        |
+| Rua do Endereço          | `rua`               | `VARCHAR(255) NOT NULL`     |
+| Número do Endereço       | `numero`            | `VARCHAR(10) NOT NULL`      |
+| CEP do Endereço          | `cep`               | `VARCHAR(10) NOT NULL`      |
+| Complemento do Endereço  | `complemento`       | `VARCHAR(255)`              |
+| Cidade do Endereço       | `cidade`            | `VARCHAR(255) NOT NULL`     |
+| Estado do Endereço       | `estado`            | `VARCHAR(255) NOT NULL`     |
+| Identificador do Cliente | `fk_id_cliente`     | `INT NOT NULL`              |
+| Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
+| Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
+
+
 ### Tabela FATO: Vendas
 
 ```sql
@@ -94,70 +162,8 @@ CREATE INDEX idx_data_venda ON fato_vendas(data_venda);
 CREATE INDEX idx_cliente ON fato_vendas(fk_id_cliente);
 CREATE INDEX idx_livro ON fato_vendas(fk_id_livro);
 
-**## Nomes Lógicos e Físicos**
 
-### **Tabela FATO: `fato_vendas`**
 
-| Nome Lógico             | Nome Físico         | Tipo de Dados              |
-|-------------------------|---------------------|----------------------------|
-| Identificador da Venda   | `id`                | `SERIAL PRIMARY KEY`        |
-| Identificador do Livro   | `fk_id_livro`       | `INT NOT NULL`              |
-| Identificador do Cliente | `fk_id_cliente`     | `INT NOT NULL`              |
-| Identificador do Endereço| `fk_id_endereco`    | `INT`                       |
-| Data da Venda            | `data_venda`        | `TIMESTAMP NOT NULL`        |
-| Quantidade Vendida       | `quantidade_vendida`| `INT NOT NULL`              |
-| Valor Total da Venda     | `valor_total`       | `DECIMAL(10, 2) NOT NULL`   |
-| Canal de Venda           | `canal_venda`       | `VARCHAR(50)`               |
-| Forma de Pagamento       | `forma_pagamento`   | `VARCHAR(50)`               |
-| Desconto Aplicado        | `desconto_aplicado` | `DECIMAL(10, 2)`            |
-| Data da Extração         | `data_extracao`     | `TIMESTAMP DEFAULT NOW()`   |
-
-### **Tabela de Dimensão: `categoria`**
-
-| Nome Lógico             | Nome Físico         | Tipo de Dados              |
-|-------------------------|---------------------|----------------------------|
-| Identificador da Categoria | `pk_id_categoria` | `SERIAL PRIMARY KEY`        |
-| Nome da Categoria        | `nome`              | `VARCHAR(255) NOT NULL`     |
-| Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
-| Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
-
-### **Tabela de Dimensão: `livro`**
-
-| Nome Lógico             | Nome Físico         | Tipo de Dados              |
-|-------------------------|---------------------|----------------------------|
-| Identificador do Livro   | `pk_id_livro`       | `SERIAL PRIMARY KEY`        |
-| Título do Livro          | `titulo`            | `VARCHAR(255) NOT NULL`     |
-| Autor do Livro           | `autor`             | `VARCHAR(255) NOT NULL`     |
-| Descrição do Livro       | `descricao`         | `TEXT`                      |
-| Código do Livro          | `codigo`            | `VARCHAR(50)`               |
-| Quantidade em Estoque    | `quantidade`        | `INT NOT NULL`              |
-| Identificador da Categoria | `fk_id_categoria` | `INT`                       |
-| Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
-| Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
-
-### **Tabela de Dimensão: `cliente`**
-
-| Nome Lógico             | Nome Físico         | Tipo de Dados              |
-|-------------------------|---------------------|----------------------------|
-| Identificador do Cliente | `pk_id_cliente`     | `SERIAL PRIMARY KEY`        |
-| Nome do Cliente          | `nome`              | `VARCHAR(255) NOT NULL`     |
-| CPF do Cliente           | `cpf`               | `VARCHAR(14) UNIQUE NOT NULL` |
-| E-mail do Cliente        | `email`             | `VARCHAR(255) UNIQUE NOT NULL` |
-| Telefone do Cliente      | `telefone`          | `VARCHAR(20)`               |
-| Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
-| Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
-
-### **Tabela de Dimensão: `endereco`**
-
-| Nome Lógico             | Nome Físico         | Tipo de Dados              |
-|-------------------------|---------------------|----------------------------|
-| Identificador do Endereço | `pk_id_endereco`   | `SERIAL PRIMARY KEY`        |
-| Rua do Endereço          | `rua`               | `VARCHAR(255) NOT NULL`     |
-| Número do Endereço       | `numero`            | `VARCHAR(10) NOT NULL`      |
-| CEP do Endereço          | `cep`               | `VARCHAR(10) NOT NULL`      |
-| Complemento do Endereço  | `complemento`       | `VARCHAR(255)`              |
-| Cidade do Endereço       | `cidade`            | `VARCHAR(255) NOT NULL`     |
-| Estado do Endereço       | `estado`            | `VARCHAR(255) NOT NULL`     |
 | Identificador do Cliente | `fk_id_cliente`     | `INT NOT NULL`              |
 | Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
 | Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
