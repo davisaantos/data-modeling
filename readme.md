@@ -94,9 +94,9 @@ CREATE INDEX idx_data_venda ON fato_vendas(data_venda);
 CREATE INDEX idx_cliente ON fato_vendas(fk_id_cliente);
 CREATE INDEX idx_livro ON fato_vendas(fk_id_livro);
 
-## Nomes Lógicos e Físicos
+**## Nomes Lógicos e Físicos**
 
-### Tabela FATO: `fato_vendas`
+### **Tabela FATO: `fato_vendas`**
 
 | Nome Lógico             | Nome Físico         | Tipo de Dados              |
 |-------------------------|---------------------|----------------------------|
@@ -112,7 +112,7 @@ CREATE INDEX idx_livro ON fato_vendas(fk_id_livro);
 | Desconto Aplicado        | `desconto_aplicado` | `DECIMAL(10, 2)`            |
 | Data da Extração         | `data_extracao`     | `TIMESTAMP DEFAULT NOW()`   |
 
-### Tabela de Dimensão: `categoria`
+### **Tabela de Dimensão: `categoria`**
 
 | Nome Lógico             | Nome Físico         | Tipo de Dados              |
 |-------------------------|---------------------|----------------------------|
@@ -121,7 +121,7 @@ CREATE INDEX idx_livro ON fato_vendas(fk_id_livro);
 | Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
 | Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
 
-### Tabela de Dimensão: `livro`
+### **Tabela de Dimensão: `livro`**
 
 | Nome Lógico             | Nome Físico         | Tipo de Dados              |
 |-------------------------|---------------------|----------------------------|
@@ -135,7 +135,7 @@ CREATE INDEX idx_livro ON fato_vendas(fk_id_livro);
 | Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
 | Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
 
-### Tabela de Dimensão: `cliente`
+### **Tabela de Dimensão: `cliente`**
 
 | Nome Lógico             | Nome Físico         | Tipo de Dados              |
 |-------------------------|---------------------|----------------------------|
@@ -147,7 +147,7 @@ CREATE INDEX idx_livro ON fato_vendas(fk_id_livro);
 | Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
 | Data de Atualização      | `data_atualizacao`  | `TIMESTAMP`                 |
 
-### Tabela de Dimensão: `endereco`
+### **Tabela de Dimensão: `endereco`**
 
 | Nome Lógico             | Nome Físico         | Tipo de Dados              |
 |-------------------------|---------------------|----------------------------|
