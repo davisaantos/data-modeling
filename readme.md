@@ -1,5 +1,9 @@
 # Projeto de modelagem de Banco de Dados de Vendas de Livros
 
+## Equipe
+
+Carolina Suelen Attili
+Davi Santos Messias
 
 ## Sumário
 
