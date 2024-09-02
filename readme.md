@@ -2,8 +2,8 @@
 
 ## Equipe
 
-Carolina Suelen Attili
-Davi Santos Messias
+- Carolina Suelen Attili 
+- Davi Santos Messias
 
 ## Sumário
 
