@@ -36,8 +36,9 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 
 
-## DW
-![DW_ drawio](https://github.com/user-attachments/assets/40c301ff-c124-4a15-b0fc-25f3254b6cf0)
+## DATA WAREHOUSE
+![DW (1) drawio](https://github.com/user-attachments/assets/783ce55e-aa5c-447f-bd1e-30c37c2fd565)
+
 
 
 
@@ -98,6 +99,12 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
   - **`fk_id_cliente`**: Identificador do cliente que realizou a compra. (Tipo: Integer, Chave Estrangeira)
   - **`fk_id_endereço`**: Identificador do endereço do cliente da venda. (Tipo: Integer, Chave Estrangeira)
   - **`data_venda`**: Data em que a venda foi realizada. (Tipo: DateTime)
+  - **`quantidade_vendida`**: Quantidade de livros vendidos na transação (Tipo: Integer)
+  - **`valor_total`**: Valor total da venda (Tipo: Decimal)
+  - **`canal_venda`**: Canal de venda (ex: online, loja física) (Tipo: String)
+  - **`forma_pagamento`**: Forma de pagamento utilizada (Tipo: String)
+  - **`desconto_aplicado`**:  Valor do desconto aplicado, se houver (Tipo: Decimal)
+  - **`data_extracao`**: Data e hora da extração/coleta dos dados (Tipo: TimeStamp)
 
 ## Estrutura de Tabelas
 
