@@ -37,7 +37,8 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 
 ## DW
-![DW](/DW.png)
+![DW_ drawio](https://github.com/user-attachments/assets/40c301ff-c124-4a15-b0fc-25f3254b6cf0)
+
 
 
 ## Glossário de Dados
@@ -92,8 +93,10 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 ### Vendas - Fato
 - **Descrição**: Tabela de fatos que registra as vendas realizadas, ligando livros e clientes.
 - **Atributos**:
-  - **`pk_id_livro`**: Identificador do livro vendido. (Tipo: Integer, Chave Estrangeira)
-  - **`pk_id_cliente`**: Identificador do cliente que realizou a compra. (Tipo: Integer, Chave Estrangeira)
+- - **`id_venda`**: Identificador da venda. (Tipo: Integer, Chave Primária)
+  - **`fk_id_livro`**: Identificador do livro vendido. (Tipo: Integer, Chave Estrangeira)
+  - **`fk_id_cliente`**: Identificador do cliente que realizou a compra. (Tipo: Integer, Chave Estrangeira)
+  - **`fk_id_endereço`**: Identificador do endereço do cliente da venda. (Tipo: Integer, Chave Estrangeira)
   - **`data_venda`**: Data em que a venda foi realizada. (Tipo: DateTime)
 
 ## Estrutura de Tabelas
@@ -103,7 +106,7 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 | Nome Lógico             | Nome Físico         | Tipo de Dados              |
 |-------------------------|---------------------|----------------------------|
-| Identificador da Venda   | `id`                | `SERIAL PRIMARY KEY`        |
+| Identificador da Venda   | `id_venda`          | `SERIAL PRIMARY KEY`        |
 | Identificador do Livro   | `fk_id_livro`       | `INT NOT NULL`              |
 | Identificador do Cliente | `fk_id_cliente`     | `INT NOT NULL`              |
 | Identificador do Endereço| `fk_id_endereco`    | `INT`                       |
@@ -170,7 +173,7 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 ```sql
 CREATE TABLE fato_vendas (
-    id SERIAL PRIMARY KEY,                  -- Identificador único para cada registro de venda
+    id_venda SERIAL PRIMARY KEY,            -- Identificador único para cada registro de venda
     fk_id_livro INT NOT NULL,               -- Chave estrangeira para a tabela de dimensão 'livro'
     fk_id_cliente INT NOT NULL,             -- Chave estrangeira para a tabela de dimensão 'cliente'
     fk_id_endereco INT,                     -- Chave estrangeira para a tabela de dimensão 'endereco'
