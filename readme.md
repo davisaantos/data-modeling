@@ -15,12 +15,48 @@ VendasLivraria
 ## Sigla:
 VLVRS
 
+## Empresa: "Letras e Vida livraria"
 
+- Missão: Nossa missão é enriquecer a vida das pessoas através do poder transformador dos livros. Oferecemos uma curadoria diversificada de obras, desde clássicos atemporais até novas descobertas literárias, promovendo a leitura como uma experiência enriquecedora e acessível a todos.
+
+- Visão: Ser a principal referência em livrarias que celebra a paixão pela leitura e fomenta uma comunidade literária vibrante e conectada. Almejamos inspirar e educar leitores de todas as idades, contribuindo para um mundo mais informado e imaginativo.
+
+- Valores:
+
+  1. Paixão pela Leitura: Valorizamos a leitura como uma forma essencial de crescimento pessoal e coletivo.
+  2. Diversidade e Inclusão: Oferecemos uma seleção ampla que reflete a diversidade de perspectivas e histórias.
+  3. Excelência no Atendimento: Comprometemo-nos a proporcionar uma experiência de compra amigável e personalizada.
+  4. Acesso ao Conhecimento: Buscamos tornar a literatura acessível a todos, promovendo o amor pelos livros e a educação.
+  5. Comunidade Literária: Fomentamos um espaço onde leitores e escritores possam se conectar e compartilhar suas paixões.
+ 
+## KPIs (Indicadores-Chave de Desempenho)
+
+## 1. Volume de Vendas
+Por que é importante: Mede o sucesso das operações e a aceitação dos produtos pelo mercado. Ajuda a entender quais livros estão em alta e a ajustar o estoque e as estratégias de marketing.
+## 2. Taxa de Crescimento de Vendas
+Por que é importante: Indica a expansão ou declínio do negócio ao longo do tempo. Um crescimento saudável sugere que a empresa está atraindo novos clientes e mantendo os existentes.
+## 3. Margem de Lucro Bruto
+Por que é importante: Avalia a rentabilidade das vendas. Uma margem saudável indica que a empresa está gerenciando bem seus custos e preços.
+## 4. Taxa de Retenção de Clientes
+Por que é importante: Mede a capacidade da empresa em manter clientes ao longo do tempo. Clientes leais são cruciais para a sustentabilidade e crescimento a longo prazo.
+## 5. Número de Novos Clientes
+Por que é importante: Reflete a eficácia das estratégias de marketing e a capacidade de atrair novos leitores. Um fluxo constante de novos clientes é essencial para o crescimento.
+## 6. Ticket Médio
+Por que é importante: Mostra o valor médio gasto por cliente. Aumentar o ticket médio pode melhorar a rentabilidade sem a necessidade de atrair novos clientes.
+## 7. Taxa de Conversão de Visitantes
+Por que é importante: Avalia a eficácia do site ou da loja em converter visitantes em compradores. Um indicador crucial para otimizar o layout e as estratégias de vendas.
+## 8. Feedback e Avaliações dos Clientes
+Por que é importante: Oferece insights qualitativos sobre a experiência do cliente e a qualidade dos produtos e serviços. Ajuda a identificar áreas para melhoria e oportunidades para inovar.
+## 9. Nível de Estoque e Rotatividade
+Por que é importante: Monitora a eficiência do gerenciamento de inventário. Um bom equilíbrio ajuda a evitar excesso de estoque ou falta de produtos populares.
+## 10. Participação em Eventos e Atividades Literárias
+Por que é importante: Mede o engajamento da empresa com a comunidade literária e o impacto das atividades externas no reconhecimento e na reputação da marca.
+Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira eficiente, mantenha clientes satisfeitos e continue a crescer no mercado competitivo de livros.
 
 
 ## Diagrama do Projeto
 
-Abaixo está o diagrama que representa a estrutura do banco de dados:
+.Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 ![Diagrama do Projeto](/atividade2.drawio.png)
 
