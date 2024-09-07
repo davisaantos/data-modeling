@@ -47,15 +47,45 @@ Por que é importante: Mede a capacidade da empresa em manter clientes ao longo 
 Por que é importante: Reflete a eficácia das estratégias de marketing e a capacidade de atrair novos leitores. Um fluxo constante de novos clientes é essencial para o crescimento.
 ## 6. Ticket Médio
 Por que é importante: Mostra o valor médio gasto por cliente. Aumentar o ticket médio pode melhorar a rentabilidade sem a necessidade de atrair novos clientes.
-## 7. Taxa de Conversão de Visitantes
-Por que é importante: Avalia a eficácia do site ou da loja em converter visitantes em compradores. Um indicador crucial para otimizar o layout e as estratégias de vendas.
-## 8. Feedback e Avaliações dos Clientes
-Por que é importante: Oferece insights qualitativos sobre a experiência do cliente e a qualidade dos produtos e serviços. Ajuda a identificar áreas para melhoria e oportunidades para inovar.
-## 9. Nível de Estoque e Rotatividade
+## 7. Nível de Estoque e Rotatividade
 Por que é importante: Monitora a eficiência do gerenciamento de inventário. Um bom equilíbrio ajuda a evitar excesso de estoque ou falta de produtos populares.
-## 10. Participação em Eventos e Atividades Literárias
-Por que é importante: Mede o engajamento da empresa com a comunidade literária e o impacto das atividades externas no reconhecimento e na reputação da marca.
-Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira eficiente, mantenha clientes satisfeitos e continue a crescer no mercado competitivo de livros.
+
+## Dados principais para cálculo dos KPIs
+
+- 1. Volume de Vendas <br />
+Tabela: Vendas - Fato <br />
+Dados principais: quantidade_vendida <br />
+Cálculo: Somar a quantidade_vendida para obter o volume total de livros vendidos em um período específico.<br />
+
+- 2. Taxa de Crescimento de Vendas <br />
+Tabela: Vendas - Fato <br />
+Dados principais: valor_total, data_venda <br />
+Cálculo: Comparar a valor_total de vendas em diferentes períodos para determinar o crescimento.<br />
+
+- 3. Margem de Lucro Bruto <br />
+Tabela: Livro, Vendas - Fato <br />
+Dados principais: valor_total (da tabela Vendas - Fato), custo <br />
+Cálculo: Subtrair o custo do livro da receita gerada e dividir pelo valor total para obter a margem. <br />
+
+- 4. Taxa de Retenção de Clientes <br />
+Tabela: Cliente, Vendas - Fato <br />
+Dados principais: pk_id_cliente, data_venda <br />
+Cálculo: Analisar o número de clientes que realizaram mais de uma compra em um período específico.<br />
+
+- 5. Número de Novos Clientes <br />
+Tabela: Cliente, Vendas - Fato <br />
+Dados principais: pk_id_cliente, data_criacao (da tabela Cliente) <br />
+Cálculo: Contar os clientes que realizaram a primeira compra em um período específico. <br />
+
+- 6. Ticket Médio <br />
+Tabela: Vendas - Fato <br />
+Dados principais: valor_total, quantidade_vendida <br />
+Cálculo: Dividir o valor_total pelas quantidade_vendida para encontrar o ticket médio por transação. <br />
+
+- 7. Nível de Estoque e Rotatividade <br />
+Tabela: Livro, Vendas - Fato <br />
+Dados principais: quantidade (da tabela Livro), quantidade_vendida (da tabela Vendas - Fato) <br />
+Cálculo: Verificar a quantidade disponível e comparar com a quantidade vendida para medir a rotatividade. <br />
 
 
 ## Diagrama do Projeto
@@ -96,6 +126,7 @@ Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira ef
   - **`autor`**: Nome do autor do livro. (Tipo: String)
   - **`descricao`**: Descrição ou sinopse do livro. (Tipo: String)
   - **`codigo`**: Código de identificação do livro (ex: ISBN). (Tipo: String)
+  - **`custo`**: Identificador do preço unitário do livro. (Tipo: Decimal)
   - **`quantidade`**: Quantidade disponível em estoque. (Tipo: Integer)
   - **`data_criacao`**: Data de criação do registro do livro. (Tipo: DateTime)
   - **`data_atualizacao`**: Data da última atualização do registro do livro. (Tipo: DateTime)
@@ -179,6 +210,7 @@ Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira ef
 | Autor do Livro           | `autor`             | `VARCHAR(255) NOT NULL`     |
 | Descrição do Livro       | `descricao`         | `TEXT`                      |
 | Código do Livro          | `codigo`            | `VARCHAR(50)`               |
+| Custo                    | `custo`             | `DECIMAL(10, 2) NOT NULL`   |
 | Quantidade em Estoque    | `quantidade`        | `INT NOT NULL`              |
 | Identificador da Categoria | `fk_id_categoria` | `INT`                       |
 | Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
