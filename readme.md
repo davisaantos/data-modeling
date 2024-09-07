@@ -1,5 +1,9 @@
 # Projeto de modelagem de Banco de Dados de Vendas de Livros
 
+## Equipe
+
+- Carolina Suelen Attili 
+- Davi Santos Messias
 
 ## Sumário
 
@@ -68,8 +72,10 @@ Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira ef
 
 
 
-## DW
-![DW](/DW.png)
+## DATA WAREHOUSE
+![DW (1) drawio](https://github.com/user-attachments/assets/783ce55e-aa5c-447f-bd1e-30c37c2fd565)
+
+
 
 
 ## Glossário de Dados
@@ -124,9 +130,17 @@ Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira ef
 ### Vendas - Fato
 - **Descrição**: Tabela de fatos que registra as vendas realizadas, ligando livros e clientes.
 - **Atributos**:
-  - **`pk_id_livro`**: Identificador do livro vendido. (Tipo: Integer, Chave Estrangeira)
-  - **`pk_id_cliente`**: Identificador do cliente que realizou a compra. (Tipo: Integer, Chave Estrangeira)
+- - **`id_venda`**: Identificador da venda. (Tipo: Integer, Chave Primária)
+  - **`fk_id_livro`**: Identificador do livro vendido. (Tipo: Integer, Chave Estrangeira)
+  - **`fk_id_cliente`**: Identificador do cliente que realizou a compra. (Tipo: Integer, Chave Estrangeira)
+  - **`fk_id_endereço`**: Identificador do endereço do cliente da venda. (Tipo: Integer, Chave Estrangeira)
   - **`data_venda`**: Data em que a venda foi realizada. (Tipo: DateTime)
+  - **`quantidade_vendida`**: Quantidade de livros vendidos na transação (Tipo: Integer)
+  - **`valor_total`**: Valor total da venda (Tipo: Decimal)
+  - **`canal_venda`**: Canal de venda (ex: online, loja física) (Tipo: String)
+  - **`forma_pagamento`**: Forma de pagamento utilizada (Tipo: String)
+  - **`desconto_aplicado`**:  Valor do desconto aplicado, se houver (Tipo: Decimal)
+  - **`data_extracao`**: Data e hora da extração/coleta dos dados (Tipo: TimeStamp)
 
 ## Estrutura de Tabelas
 
@@ -135,7 +149,7 @@ Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira ef
 
 | Nome Lógico             | Nome Físico         | Tipo de Dados              |
 |-------------------------|---------------------|----------------------------|
-| Identificador da Venda   | `id`                | `SERIAL PRIMARY KEY`        |
+| Identificador da Venda   | `id_venda`          | `SERIAL PRIMARY KEY`        |
 | Identificador do Livro   | `fk_id_livro`       | `INT NOT NULL`              |
 | Identificador do Cliente | `fk_id_cliente`     | `INT NOT NULL`              |
 | Identificador do Endereço| `fk_id_endereco`    | `INT`                       |
@@ -202,7 +216,7 @@ Esses KPIs são cruciais para garantir que a "Letras e Vida" opere de maneira ef
 
 ```sql
 CREATE TABLE fato_vendas (
-    id SERIAL PRIMARY KEY,                  -- Identificador único para cada registro de venda
+    id_venda SERIAL PRIMARY KEY,            -- Identificador único para cada registro de venda
     fk_id_livro INT NOT NULL,               -- Chave estrangeira para a tabela de dimensão 'livro'
     fk_id_cliente INT NOT NULL,             -- Chave estrangeira para a tabela de dimensão 'cliente'
     fk_id_endereco INT,                     -- Chave estrangeira para a tabela de dimensão 'endereco'
