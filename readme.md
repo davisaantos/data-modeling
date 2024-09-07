@@ -19,12 +19,78 @@ VendasLivraria
 ## Sigla:
 VLVRS
 
+## Empresa: "Letras e Vida livraria"
 
+- Missão: Nossa missão é enriquecer a vida das pessoas através do poder transformador dos livros. Oferecemos uma curadoria diversificada de obras, desde clássicos atemporais até novas descobertas literárias, promovendo a leitura como uma experiência enriquecedora e acessível a todos.
+
+- Visão: Ser a principal referência em livrarias que celebra a paixão pela leitura e fomenta uma comunidade literária vibrante e conectada. Almejamos inspirar e educar leitores de todas as idades, contribuindo para um mundo mais informado e imaginativo.
+
+- Valores:
+
+  1. Paixão pela Leitura: Valorizamos a leitura como uma forma essencial de crescimento pessoal e coletivo.
+  2. Diversidade e Inclusão: Oferecemos uma seleção ampla que reflete a diversidade de perspectivas e histórias.
+  3. Excelência no Atendimento: Comprometemo-nos a proporcionar uma experiência de compra amigável e personalizada.
+  4. Acesso ao Conhecimento: Buscamos tornar a literatura acessível a todos, promovendo o amor pelos livros e a educação.
+  5. Comunidade Literária: Fomentamos um espaço onde leitores e escritores possam se conectar e compartilhar suas paixões.
+ 
+## KPIs (Indicadores-Chave de Desempenho)
+
+## 1. Volume de Vendas
+Por que é importante: Mede o sucesso das operações e a aceitação dos produtos pelo mercado. Ajuda a entender quais livros estão em alta e a ajustar o estoque e as estratégias de marketing.
+## 2. Taxa de Crescimento de Vendas
+Por que é importante: Indica a expansão ou declínio do negócio ao longo do tempo. Um crescimento saudável sugere que a empresa está atraindo novos clientes e mantendo os existentes.
+## 3. Margem de Lucro Bruto
+Por que é importante: Avalia a rentabilidade das vendas. Uma margem saudável indica que a empresa está gerenciando bem seus custos e preços.
+## 4. Taxa de Retenção de Clientes
+Por que é importante: Mede a capacidade da empresa em manter clientes ao longo do tempo. Clientes leais são cruciais para a sustentabilidade e crescimento a longo prazo.
+## 5. Número de Novos Clientes
+Por que é importante: Reflete a eficácia das estratégias de marketing e a capacidade de atrair novos leitores. Um fluxo constante de novos clientes é essencial para o crescimento.
+## 6. Ticket Médio
+Por que é importante: Mostra o valor médio gasto por cliente. Aumentar o ticket médio pode melhorar a rentabilidade sem a necessidade de atrair novos clientes.
+## 7. Nível de Estoque e Rotatividade
+Por que é importante: Monitora a eficiência do gerenciamento de inventário. Um bom equilíbrio ajuda a evitar excesso de estoque ou falta de produtos populares.
+
+## Dados principais para cálculo dos KPIs
+
+- 1. Volume de Vendas <br />
+Tabela: Vendas - Fato <br />
+Dados principais: quantidade_vendida <br />
+Cálculo: Somar a quantidade_vendida para obter o volume total de livros vendidos em um período específico.<br />
+
+- 2. Taxa de Crescimento de Vendas <br />
+Tabela: Vendas - Fato <br />
+Dados principais: valor_total, data_venda <br />
+Cálculo: Comparar a valor_total de vendas em diferentes períodos para determinar o crescimento.<br />
+
+- 3. Margem de Lucro Bruto <br />
+Tabela: Livro, Vendas - Fato <br />
+Dados principais: valor_total (da tabela Vendas - Fato), custo <br />
+Cálculo: Subtrair o custo do livro da receita gerada e dividir pelo valor total para obter a margem. <br />
+
+- 4. Taxa de Retenção de Clientes <br />
+Tabela: Cliente, Vendas - Fato <br />
+Dados principais: pk_id_cliente, data_venda <br />
+Cálculo: Analisar o número de clientes que realizaram mais de uma compra em um período específico.<br />
+
+- 5. Número de Novos Clientes <br />
+Tabela: Cliente, Vendas - Fato <br />
+Dados principais: pk_id_cliente, data_criacao (da tabela Cliente) <br />
+Cálculo: Contar os clientes que realizaram a primeira compra em um período específico. <br />
+
+- 6. Ticket Médio <br />
+Tabela: Vendas - Fato <br />
+Dados principais: valor_total, quantidade_vendida <br />
+Cálculo: Dividir o valor_total pelas quantidade_vendida para encontrar o ticket médio por transação. <br />
+
+- 7. Nível de Estoque e Rotatividade <br />
+Tabela: Livro, Vendas - Fato <br />
+Dados principais: quantidade (da tabela Livro), quantidade_vendida (da tabela Vendas - Fato) <br />
+Cálculo: Verificar a quantidade disponível e comparar com a quantidade vendida para medir a rotatividade. <br />
 
 
 ## Diagrama do Projeto
 
-Abaixo está o diagrama que representa a estrutura do banco de dados:
+.Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 ![Diagrama do Projeto](/atividade2.drawio.png)
 
@@ -37,7 +103,8 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 
 
 ## DATA WAREHOUSE
-![DW (1) drawio](https://github.com/user-attachments/assets/783ce55e-aa5c-447f-bd1e-30c37c2fd565)
+![DW_](https://github.com/user-attachments/assets/9e6f8988-cd3b-451f-a5ae-b9e67fce4834)
+
 
 
 
@@ -60,6 +127,7 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
   - **`autor`**: Nome do autor do livro. (Tipo: String)
   - **`descricao`**: Descrição ou sinopse do livro. (Tipo: String)
   - **`codigo`**: Código de identificação do livro (ex: ISBN). (Tipo: String)
+  - **`custo`**: Identificador do preço unitário do livro. (Tipo: Decimal)
   - **`quantidade`**: Quantidade disponível em estoque. (Tipo: Integer)
   - **`data_criacao`**: Data de criação do registro do livro. (Tipo: DateTime)
   - **`data_atualizacao`**: Data da última atualização do registro do livro. (Tipo: DateTime)
@@ -143,6 +211,7 @@ Abaixo está o diagrama que representa a estrutura do banco de dados:
 | Autor do Livro           | `autor`             | `VARCHAR(255) NOT NULL`     |
 | Descrição do Livro       | `descricao`         | `TEXT`                      |
 | Código do Livro          | `codigo`            | `VARCHAR(50)`               |
+| Custo                    | `custo`             | `DECIMAL(10, 2) NOT NULL`   |
 | Quantidade em Estoque    | `quantidade`        | `INT NOT NULL`              |
 | Identificador da Categoria | `fk_id_categoria` | `INT`                       |
 | Data de Criação          | `data_criacao`      | `TIMESTAMP NOT NULL`        |
