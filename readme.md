@@ -103,7 +103,7 @@ Cálculo: Verificar a quantidade disponível e comparar com a quantidade vendida
 
 
 ## DATA WAREHOUSE
-![Uploading DW_.png…]()
+![DW_](https://github.com/user-attachments/assets/9e6f8988-cd3b-451f-a5ae-b9e67fce4834)
 
 
 
