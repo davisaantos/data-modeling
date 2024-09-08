@@ -97,7 +97,7 @@ Cálculo: Verificar a quantidade disponível e comparar com a quantidade vendida
 
 
 ## RELACIONAL
-![Relacional](/relacional.png)
+![Relacional](/relacional_2.png)
 
 
 
